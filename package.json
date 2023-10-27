@@ -2,8 +2,10 @@
   "name": "uqmafia-godbot",
   "version": "0.0.1",
   "description": "God bot will be used to automate the running of a mafia game for improved speed and complexity of roles.",
-  "main": "index.js",
+  "main": "out/server.js",
   "scripts": {
+    "build": "npx tsc",
+    "server": "npx tsc && node out/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

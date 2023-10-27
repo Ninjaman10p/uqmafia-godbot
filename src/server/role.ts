@@ -13,6 +13,8 @@ export interface Player {
 
 export interface Role {
     interaction: (event: Event, player: any, game: any) => Promise<void>;
+    description: () => String;
+    name: () => String;
 }
 
 // sample
@@ -33,4 +35,7 @@ class Mafioso implements Role {
                 game.addMafiaVote(target);
         }
     }
+
+    description = () => "Kill people";
+    name = () => "Mafioso";
 }

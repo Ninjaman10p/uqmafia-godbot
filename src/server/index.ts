@@ -39,8 +39,7 @@ const error404 = (res: http.ServerResponse) => {
 };
 
 class Server {
-    Server() {
-    }
+    Server() {}
 
     requestListener = async (
         req: http.IncomingMessage,

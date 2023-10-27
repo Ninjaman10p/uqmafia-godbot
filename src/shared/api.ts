@@ -9,6 +9,16 @@ export interface PlayerServerResponse {
     messages: PlayerMessage[];
 }
 
+export interface JoinGameRequest {
+    gameid: string;
+    name: string;
+    // handin tokens
+}
+
+export interface JoinGameResponse {
+    new_userid: string;
+}
+
 export interface AdminClientMessage {
     userid: string;
 }

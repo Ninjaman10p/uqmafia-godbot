@@ -2,6 +2,7 @@ type Event = "Nightfall" | "Morning" | "Lynched";
 
 export interface PlayerMessage {
     inputMethod: "None" | "SelectPlayer";
+    theme?: "Murder";
     message: string;
     icon: string;
 }
@@ -9,6 +10,10 @@ export interface PlayerMessage {
 // eventually just turn this into a class
 export interface Player {
     contact: (message: PlayerMessage) => Promise<string | null>;
+    getMessages: () => PlayerMessage[];
+    resolveMessage: (response: string | null, index: number) => void;
+
+    // also store the role here
 }
 
 export interface Role {
@@ -18,7 +23,7 @@ export interface Role {
 }
 
 // sample
-class Mafioso implements Role {
+export class Mafioso implements Role {
     Mafioso() {}
 
     async interaction(event: Event, player: Player, game: any): Promise<void> {
@@ -28,6 +33,7 @@ class Mafioso implements Role {
                 // game.allow_mafia_chat(player) // make this look all secret-y
                 const target = await player.contact({
                     inputMethod: "SelectPlayer",
+                    theme: "Murder",
                     message:
                         "Who do you want to kill? Check with your fellow mafia first",
                     icon: "killstuff.jpeg",

@@ -1,7 +1,7 @@
 {
   "name": "uqmafia-godbot",
   "version": "0.0.1",
-  "description": "",
+  "description": "God bot will be used to automate the running of a mafia game for improved speed and complexity of roles.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/Ninjaman10p/uqmafia-godbot.git"
   },
-  "author": "",
+  "author": "Tom, Desirer of Mao",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Ninjaman10p/uqmafia-godbot/issues"
   },
-  "homepage": "https://github.com/Ninjaman10p/uqmafia-godbot#readme"
+  "homepage": "https://github.com/Ninjaman10p/uqmafia-godbot#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
 }

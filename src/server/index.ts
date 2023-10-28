@@ -29,29 +29,42 @@ const sendFile = async (
 ) => {
     console.log(`Delivering ${filepath} to ${req.socket.remoteAddress}`);
     const page = await readFile(filepath);
-    if (page == null) return error404(res);
+    if (page == null) return error404(req, res);
     res.writeHead(200);
     res.end(page);
 };
 
-const error404 = (res: http.ServerResponse) => {
+/*
+ * Responds with an error 404
+ */
+const error404 = (req: http.IncomingMessage, res: http.ServerResponse) => {
     res.writeHead(404);
     res.end("error 404");
 };
 
-const POSTApi = async (
+/* Converts a handler into a POST API.
+ *
+ * Takes the message body from req, runs it as JSON
+ * through handler, then responds to res with the result
+ */
+const POSTApi = async <T, R extends object>(
     req: http.IncomingMessage,
     res: http.ServerResponse,
-    handler: (message: object) => object,
+    handler: (message: T) => R,
 ) => {
     let rawBody = "";
     for await (const chunk of req) {
         rawBody += chunk;
     }
-    let jsonBody = JSON.parse(rawBody);
-    let jsonResponse = handler(jsonBody);
-    res.writeHead(200);
-    res.end(JSON.stringify(jsonResponse));
+    const jsonBody = JSON.parse(rawBody);
+    try {
+        const jsonResponse = handler(jsonBody);
+        res.writeHead(200);
+        res.end(JSON.stringify(jsonResponse));
+    } catch {
+        res.writeHead(400);
+        res.end("Request probably doesn't match interface");
+    }
 };
 
 class Server {
@@ -66,7 +79,7 @@ class Server {
         res: http.ServerResponse,
     ) => {
         let url = req.url;
-        if (url == undefined) return error404(res);
+        if (url == undefined) return error404(req, res);
         switch (req.url) {
             case "/":
                 url = "/index";
@@ -86,7 +99,7 @@ class Server {
                 const codeFilepath = url.match(/(?<=^\/script\/).*/);
                 if (codeFilepath != null)
                     return sendFile(req, res, `out/${codeFilepath[0]}`);
-                return error404(res);
+                return error404(req, res);
         }
     };
 }

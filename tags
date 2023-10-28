@@ -10,6 +10,15 @@
 !_TAG_FIELD_DESCRIPTION	typeref	/Type and name of a variable or typedef/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_KIND_DESCRIPTION!HTML	C,stylesheet	/stylesheets/
+!_TAG_KIND_DESCRIPTION!HTML	I,id	/identifiers/
+!_TAG_KIND_DESCRIPTION!HTML	J,script	/scripts/
+!_TAG_KIND_DESCRIPTION!HTML	a,anchor	/named anchors/
+!_TAG_KIND_DESCRIPTION!HTML	c,class	/classes/
+!_TAG_KIND_DESCRIPTION!HTML	h,heading1	/H1 headings/
+!_TAG_KIND_DESCRIPTION!HTML	i,heading2	/H2 headings/
+!_TAG_KIND_DESCRIPTION!HTML	j,heading3	/H3 headings/
+!_TAG_KIND_DESCRIPTION!HTML	t,title	/titles/
 !_TAG_KIND_DESCRIPTION!JavaScript	C,constant	/constants/
 !_TAG_KIND_DESCRIPTION!JavaScript	G,getter	/getters/
 !_TAG_KIND_DESCRIPTION!JavaScript	M,field	/fields/
@@ -20,53 +29,109 @@
 !_TAG_KIND_DESCRIPTION!JavaScript	m,method	/methods/
 !_TAG_KIND_DESCRIPTION!JavaScript	p,property	/properties/
 !_TAG_KIND_DESCRIPTION!JavaScript	v,variable	/global variables/
-!_TAG_KIND_DESCRIPTION!TypeScript	C,constant	/constants/
-!_TAG_KIND_DESCRIPTION!TypeScript	G,generator	/generators/
-!_TAG_KIND_DESCRIPTION!TypeScript	a,alias	/aliases/
-!_TAG_KIND_DESCRIPTION!TypeScript	c,class	/classes/
-!_TAG_KIND_DESCRIPTION!TypeScript	e,enumerator	/enumerators (values inside an enumeration)/
-!_TAG_KIND_DESCRIPTION!TypeScript	f,function	/functions/
-!_TAG_KIND_DESCRIPTION!TypeScript	g,enum	/enums/
-!_TAG_KIND_DESCRIPTION!TypeScript	i,interface	/interfaces/
-!_TAG_KIND_DESCRIPTION!TypeScript	m,method	/methods/
-!_TAG_KIND_DESCRIPTION!TypeScript	n,namespace	/namespaces/
-!_TAG_KIND_DESCRIPTION!TypeScript	p,property	/properties/
-!_TAG_KIND_DESCRIPTION!TypeScript	v,variable	/variables/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_OUTPUT_VERSION	0.0	/current.age/
+!_TAG_PARSER_VERSION!HTML	0.0	/current.age/
 !_TAG_PARSER_VERSION!JavaScript	0.0	/current.age/
-!_TAG_PARSER_VERSION!TypeScript	0.0	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
 !_TAG_PROC_CWD	/home/paelias/Dev/uqmafia-godbot/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	6.0.0	/p6.0.20221218.0/
-adopt	out/server/index.js	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f
-anonymousFunctiond51bf0150100	out/server/index.js	/^var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) /;"	f
-anonymousFunctiond51bf0150200	out/server/index.js	/^}) : (function(o, m, k, k2) {$/;"	f
-anonymousFunctiond51bf0150300	out/server/index.js	/^var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {$/;"	f
-anonymousFunctiond51bf0150500	out/server/index.js	/^}) : function(o, v) {$/;"	f
-anonymousFunctiond51bf0150600	out/server/index.js	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f	function:adopt
-anonymousFunctiond51bf0150700	out/server/index.js	/^    return new (P || (P = Promise))(function (resolve, reject) {$/;"	f
-anonymousFunctiond51bf0150900	out/server/index.js	/^const requestListener = (req, res) => __awaiter(void 0, void 0, void 0, function* () {$/;"	g
-anonymousObjectd51bf0150405	out/server/index.js	/^    Object.defineProperty(o, "default", { enumerable: true, value: v });$/;"	v
-anonymousObjectd51bf0150805	out/server/index.js	/^Object.defineProperty(exports, "__esModule", { value: true });$/;"	v
-desc	out/server/index.js	/^      desc = { enumerable: true, get: function() { return m[k]; } };$/;"	v	function:anonymousFunctiond51bf0150100
-enumerable	out/server/index.js	/^      desc = { enumerable: true, get: function() { return m[k]; } };$/;"	p	variable:anonymousFunctiond51bf0150100.desc
-enumerable	out/server/index.js	/^    Object.defineProperty(o, "default", { enumerable: true, value: v });$/;"	p	variable:anonymousObjectd51bf0150405
-fulfilled	out/server/index.js	/^        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); /;"	f	function:anonymousFunctiond51bf0150700
-get	out/server/index.js	/^      desc = { enumerable: true, get: function() { return m[k]; } };$/;"	m	variable:anonymousFunctiond51bf0150100.desc
-http	out/server/index.js	/^const http = __importStar(require("http"));$/;"	C
-main	out/server/index.js	/^const main = (port) => {$/;"	f
-main	src/server/index.ts	/^const main = (port: number) => {$/;"	C
-rejected	out/server/index.js	/^        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e/;"	f	function:anonymousFunctiond51bf0150700
-requestListener	out/server/index.js	/^const requestListener = (req, res) => __awaiter(void 0, void 0, void 0, function* () {$/;"	f
-requestListener	src/server/index.ts	/^const requestListener = async ($/;"	C
-result	out/server/index.js	/^    var result = {};$/;"	v
-step	out/server/index.js	/^        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(f/;"	f	function:anonymousFunctiond51bf0150700
-test	src/server/test-import.ts	/^export const test = () => console.log("hi");$/;"	C
-value	out/server/index.js	/^    Object.defineProperty(o, "default", { enumerable: true, value: v });$/;"	p	variable:anonymousObjectd51bf0150405
-value	out/server/index.js	/^Object.defineProperty(exports, "__esModule", { value: true });$/;"	p	variable:anonymousObjectd51bf0150805
+!_TAG_ROLE_DESCRIPTION!HTML!class	attribute	/assigned as attributes/
+!_TAG_ROLE_DESCRIPTION!HTML!script	extFile	/referenced as external files/
+!_TAG_ROLE_DESCRIPTION!HTML!stylesheet	extFile	/referenced as external files/
+Content-Type	out/shared/api.mjs	/^                "Content-Type": "application\/json",$/;"	p	property:getAPI.anonymousFunctionb672ff440300.options.headers
+Game	out/server/game.mjs	/^export class Game {$/;"	c
+Mafioso	out/server/role.mjs	/^export class Mafioso {$/;"	c
+POSTApi	out/server/index.mjs	/^const POSTApi = (req, res, handler) => { var _a, req_1, req_1_1; return __awaiter(void 0, void 0/;"	f
+Server	out/server/index.mjs	/^export class Server {$/;"	c
+_a	out/client/player.mjs	/^var _a;$/;"	v
+_a	out/server/index.mjs	/^const POSTApi = (req, res, handler) => { var _a, req_1, req_1_1; return __awaiter(void 0, void 0/;"	v
+addUser	out/server/game.mjs	/^    addUser(userid, name) {$/;"	m	class:Game
+adopt	out/client/player.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f
+adopt	out/server/index.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f
+adopt	out/server/role.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f
+adopt	out/shared/api.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f
+anonymousFunction7899fec20100	out/server/index.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f	function:adopt
+anonymousFunction7899fec20200	out/server/index.mjs	/^    return new (P || (P = Promise))(function (resolve, reject) {$/;"	f
+anonymousFunction7899fec20400	out/server/index.mjs	/^    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator/;"	f
+anonymousFunction7899fec20500	out/server/index.mjs	/^    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, rejec/;"	f	function:verb
+anonymousFunction7899fec20600	out/server/index.mjs	/^    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ val/;"	f
+anonymousFunction7899fec20800	out/server/index.mjs	/^const readFile = (filepath) => __awaiter(void 0, void 0, void 0, function* () {$/;"	g
+anonymousFunction7899fec20900	out/server/index.mjs	/^const sendFile = (req, res, filepath) => __awaiter(void 0, void 0, void 0, function* () {$/;"	g
+anonymousFunction7899fec20a00	out/server/index.mjs	/^const POSTApi = (req, res, handler) => { var _a, req_1, req_1_1; return __awaiter(void 0, void 0/;"	g
+anonymousFunction7899fec20b00	out/server/index.mjs	/^        this.requestListener = (req, res) => __awaiter(this, void 0, void 0, function* () {$/;"	g	method:Server.constructor
+anonymousFunction7899fec20c00	out/server/index.mjs	/^        return __awaiter(this, void 0, void 0, function* () {$/;"	g	method:Server.echo
+anonymousFunction7899fec20d00	out/server/index.mjs	/^        return __awaiter(this, void 0, void 0, function* () {$/;"	g	method:Server.newGame
+anonymousFunction7899fec20e00	out/server/index.mjs	/^        return __awaiter(this, void 0, void 0, function* () {$/;"	g	method:Server.joinGame
+anonymousFunction7d9975bf0100	out/client/player.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f	function:adopt
+anonymousFunction7d9975bf0200	out/client/player.mjs	/^    return new (P || (P = Promise))(function (resolve, reject) {$/;"	f
+anonymousFunction7d9975bf0300	out/client/player.mjs	/^    return __awaiter(this, void 0, void 0, function* () {$/;"	g	function:joinGame
+anonymousFunction82e865bc0100	out/server/role.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f	function:adopt
+anonymousFunction82e865bc0200	out/server/role.mjs	/^    return new (P || (P = Promise))(function (resolve, reject) {$/;"	f
+anonymousFunction82e865bc0300	out/server/role.mjs	/^        return __awaiter(this, void 0, void 0, function* () {$/;"	g	method:Mafioso.interaction
+anonymousFunctionb672ff440100	out/shared/api.mjs	/^    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resol/;"	f	function:adopt
+anonymousFunctionb672ff440200	out/shared/api.mjs	/^    return new (P || (P = Promise))(function (resolve, reject) {$/;"	f
+anonymousFunctionb672ff440300	out/shared/api.mjs	/^    return __awaiter(this, void 0, void 0, function* () {$/;"	g	function:getAPI
+anonymousObject7899fec20705	out/server/index.mjs	/^    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ val/;"	v	function:anonymousFunction7899fec20600
+anonymousObject7d9975bf0405	out/client/player.mjs	/^        const response = yield getAPI("\/api\/joingame", {$/;"	v	generator:joinGame.anonymousFunction7d9975bf0300
+anonymousObject82e865bc0405	out/server/role.mjs	/^                    const target = yield player.contact({$/;"	v	generator:Mafioso.interaction.anonymousFunction82e865bc0300
+body	out/shared/api.mjs	/^            body: JSON.stringify(data),$/;"	p	variable:getAPI.anonymousFunctionb672ff440300.options
+constructor	out/server/game.mjs	/^    constructor(admin) {$/;"	m	class:Game
+constructor	out/server/index.mjs	/^    constructor() {$/;"	m	class:Server
+constructor	out/server/role.mjs	/^    constructor() {$/;"	m	class:Mafioso
+description	out/server/role.mjs	/^        this.description = () => "Kill people";$/;"	f	method:Mafioso.constructor
+done	out/server/index.mjs	/^    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ val/;"	p	variable:anonymousFunction7899fec20600.anonymousObject7899fec20705
+e_1	out/server/index.mjs	/^    catch (e_1_1) { e_1 = { error: e_1_1 }; }$/;"	v	generator:anonymousFunction7899fec20a00
+echo	out/server/index.mjs	/^    echo(body) {$/;"	m	class:Server
+error	out/server/index.mjs	/^    catch (e_1_1) { e_1 = { error: e_1_1 }; }$/;"	p	variable:anonymousFunction7899fec20a00.e_1
+error404	out/server/index.mjs	/^const error404 = (req, res) => {$/;"	f
+filterFailure	out/shared/api.mjs	/^export function filterFailure(message) {$/;"	f
+fulfilled	out/client/player.mjs	/^        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); /;"	f	function:anonymousFunction7d9975bf0200
+fulfilled	out/server/index.mjs	/^        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); /;"	f	function:anonymousFunction7899fec20200
+fulfilled	out/server/role.mjs	/^        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); /;"	f	function:anonymousFunction82e865bc0200
+fulfilled	out/shared/api.mjs	/^        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); /;"	f	function:anonymousFunctionb672ff440200
+gamecode-input	static/player.html	/^            <li><label>Game Id<\/label> <input id="gamecode-input"\/><\/li>$/;"	I
+gameid	out/client/player.mjs	/^            gameid: gamecode,$/;"	p	variable:joinGame.anonymousFunction7d9975bf0300.anonymousObject7d9975bf0405
+getAPI	out/shared/api.mjs	/^export function getAPI(url, data) {$/;"	f
+headers	out/shared/api.mjs	/^            headers: {$/;"	p	variable:getAPI.anonymousFunctionb672ff440300.options
+i	out/server/index.mjs	/^    var m = o[Symbol.asyncIterator], i;$/;"	v
+icon	out/server/role.mjs	/^                        icon: "killstuff.jpeg",$/;"	p	variable:Mafioso.interaction.anonymousFunction82e865bc0300.anonymousObject82e865bc0405
+inputMethod	out/server/role.mjs	/^                        inputMethod: "SelectPlayer",$/;"	p	variable:Mafioso.interaction.anonymousFunction82e865bc0300.anonymousObject82e865bc0405
+interaction	out/server/role.mjs	/^    interaction(event, player, game) {$/;"	m	class:Mafioso
+join-game-button	static/player.html	/^            <li><button id="join-game-button">Join Game<\/button><\/li>$/;"	I
+joinGame	out/client/player.mjs	/^function joinGame(_event) {$/;"	f
+joinGame	out/server/index.mjs	/^    joinGame(request) {$/;"	m	class:Server
+m	out/server/index.mjs	/^    var m = o[Symbol.asyncIterator], i;$/;"	v
+main	out/server/index.mjs	/^const main = (port) => {$/;"	f
+message	out/server/role.mjs	/^                        message: "Who do you want to kill? Check with your fellow mafia first",$/;"	p	variable:Mafioso.interaction.anonymousFunction82e865bc0300.anonymousObject82e865bc0405
+method	out/shared/api.mjs	/^            method: "POST",$/;"	p	variable:getAPI.anonymousFunctionb672ff440300.options
+name	out/client/player.mjs	/^            name: name,$/;"	p	variable:joinGame.anonymousFunction7d9975bf0300.anonymousObject7d9975bf0405
+name	out/server/role.mjs	/^        this.name = () => "Mafioso";$/;"	f	method:Mafioso.constructor
+name-input	static/player.html	/^            <li><label>name<\/label> <input id="name-input"\/><\/li>$/;"	I
+newGame	out/server/index.mjs	/^    newGame(request) {$/;"	m	class:Server
+options	out/shared/api.mjs	/^        const options = {$/;"	v	generator:getAPI.anonymousFunctionb672ff440300
+randomGameCode	out/server/game.mjs	/^export function randomGameCode() {$/;"	f
+readFile	out/server/index.mjs	/^const readFile = (filepath) => __awaiter(void 0, void 0, void 0, function* () {$/;"	f
+rejected	out/client/player.mjs	/^        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e/;"	f	function:anonymousFunction7d9975bf0200
+rejected	out/server/index.mjs	/^        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e/;"	f	function:anonymousFunction7899fec20200
+rejected	out/server/role.mjs	/^        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e/;"	f	function:anonymousFunction82e865bc0200
+rejected	out/shared/api.mjs	/^        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e/;"	f	function:anonymousFunctionb672ff440200
+req_1	out/server/index.mjs	/^const POSTApi = (req, res, handler) => { var _a, req_1, req_1_1; return __awaiter(void 0, void 0/;"	v
+req_1_1	out/server/index.mjs	/^const POSTApi = (req, res, handler) => { var _a, req_1, req_1_1; return __awaiter(void 0, void 0/;"	v
+requestListener	out/server/index.mjs	/^        this.requestListener = (req, res) => __awaiter(this, void 0, void 0, function* () {$/;"	f	method:Server.constructor
+sendFile	out/server/index.mjs	/^const sendFile = (req, res, filepath) => __awaiter(void 0, void 0, void 0, function* () {$/;"	f
+server	out/server/index.mjs	/^    const server = new Server();$/;"	C
+settle	out/server/index.mjs	/^    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ val/;"	f
+step	out/client/player.mjs	/^        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(f/;"	f	function:anonymousFunction7d9975bf0200
+step	out/server/index.mjs	/^        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(f/;"	f	function:anonymousFunction7899fec20200
+step	out/server/role.mjs	/^        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(f/;"	f	function:anonymousFunction82e865bc0200
+step	out/shared/api.mjs	/^        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(f/;"	f	function:anonymousFunctionb672ff440200
+test	out/server/test-import.mjs	/^export const test = () => console.log("hi");$/;"	f
+theme	out/server/role.mjs	/^                        theme: "Murder",$/;"	p	variable:Mafioso.interaction.anonymousFunction82e865bc0300.anonymousObject82e865bc0405
+value	out/server/index.mjs	/^    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ val/;"	p	variable:anonymousFunction7899fec20600.anonymousObject7899fec20705
+verb	out/server/index.mjs	/^    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, rejec/;"	f

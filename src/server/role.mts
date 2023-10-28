@@ -1,3 +1,5 @@
+import { Game } from "./game.mjs";
+
 type Event = "Nightfall" | "Morning" | "Lynched";
 
 export interface PlayerMessage {
@@ -17,16 +19,16 @@ export interface Player {
 }
 
 export interface Role {
-    interaction: (event: Event, player: any, game: any) => Promise<void>;
+    interaction: (event: Event, player: any, game: Game) => Promise<void>;
     description: () => String;
     name: () => String;
 }
 
 // sample
 export class Mafioso implements Role {
-    Mafioso() {}
+    constructor() {}
 
-    async interaction(event: Event, player: Player, game: any): Promise<void> {
+    async interaction(event: Event, player: Player, game: Game): Promise<void> {
         switch (event) {
             case "Nightfall":
                 // this is essentially pseudocode at this point
@@ -38,7 +40,7 @@ export class Mafioso implements Role {
                         "Who do you want to kill? Check with your fellow mafia first",
                     icon: "killstuff.jpeg",
                 });
-                game.addMafiaVote(target);
+                // game.addMafiaVote(target);
         }
     }
 

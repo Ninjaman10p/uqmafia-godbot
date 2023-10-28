@@ -8,7 +8,9 @@ If you're seeing this, cograts, you've successfully hacked this
 import * as http from "http";
 import * as fs from "fs/promises";
 
-import { test } from "./test-import";
+import { GameCode, randomGameCode, Game } from "./game.mjs";
+import * as api from "../shared/api.mjs";
+import { Uuid, ApiFailure } from "../shared/api.mjs";
 
 const readFile = async (filepath: string): Promise<Buffer | null> => {
     let handle;
@@ -50,7 +52,7 @@ const error404 = (req: http.IncomingMessage, res: http.ServerResponse) => {
 const POSTApi = async <T, R extends object>(
     req: http.IncomingMessage,
     res: http.ServerResponse,
-    handler: (message: T) => R,
+    handler: (message: T) => Promise<R>,
 ) => {
     let rawBody = "";
     for await (const chunk of req) {
@@ -58,20 +60,58 @@ const POSTApi = async <T, R extends object>(
     }
     const jsonBody = JSON.parse(rawBody);
     try {
-        const jsonResponse = handler(jsonBody);
+        const jsonResponse = await handler(jsonBody);
+        const failure = api.filterFailure(jsonResponse);
+        if (failure) {
+            res.writeHead(failure.failureCode);
+            return res.end(JSON.stringify(failure));
+        }
         res.writeHead(200);
-        res.end(JSON.stringify(jsonResponse));
-    } catch {
-        res.writeHead(400);
-        res.end("Request probably doesn't match interface");
+        return res.end(JSON.stringify(jsonResponse));
+    } catch (e) {
+        console.error(e);
+        res.writeHead(500);
+        return res.end("Internal Server Error or malformed query");
     }
 };
 
-class Server {
-    Server() {}
+export class Server {
+    games: Map<GameCode, Game>;
 
-    echo = (body: object) => {
+    constructor() {
+        this.games = new Map<GameCode, Game>();
+    }
+
+    echo = async (body: object): Promise<object> => {
         return body;
+    };
+
+    newGame = async (
+        request: api.NewGameRequest,
+    ): Promise<api.NewGameResponse> => {
+        const gameid = randomGameCode();
+        const userid = crypto.randomUUID();
+        const game = new Game(userid);
+        this.games.set(gameid, game);
+        console.log(`Starting game ${gameid}`);
+        return {
+            gameid: gameid,
+            userid: userid,
+        };
+    };
+
+    joinGame = async (
+        request: api.JoinGameRequest,
+    ): Promise<api.JoinGameResponse> => {
+        const game = this.games.get(request.gameid);
+        if (game == null)
+            return {
+                failureCode: 404,
+                message: `Game ${request.gameid} not found`,
+            };
+        const userid = crypto.randomUUID();
+        game.addUser(userid, request.name);
+        return { userid: userid };
     };
 
     requestListener = async (
@@ -89,6 +129,10 @@ class Server {
                 return sendFile(req, res, `static${url}.html`);
             case "/api/echo":
                 return POSTApi(req, res, this.echo);
+            case "/api/joingame":
+                return POSTApi(req, res, this.joinGame);
+            case "/api/newgame":
+                return POSTApi(req, res, this.newGame);
             default:
                 // deliver static files
                 const staticFilepath = url.match(/(?<=^\/static\/).*/);
@@ -97,8 +141,10 @@ class Server {
 
                 // deliver code files
                 const codeFilepath = url.match(/(?<=^\/script\/).*/);
-                if (codeFilepath != null)
+                if (codeFilepath != null) {
+                    res.setHeader("Content-Type", "text/javascript");
                     return sendFile(req, res, `out/${codeFilepath[0]}`);
+                }
                 return error404(req, res);
         }
     };

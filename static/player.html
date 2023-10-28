@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <title></title>
-        <script src="/script/client/player.js"></script>
+        <script type="module" src="/script/client/player.mjs"></script>
     </head>
     <body>
         <ul>
-            <li><label>Game Id</label> <input /></li>
-            <li><label>name</label> <input /></li>
-            <li><button onclick="joinGame()">Join Game</button></li>
+            <li><label>Game Id</label> <input id="gamecode-input"/></li>
+            <li><label>name</label> <input id="name-input"/></li>
+            <li><button id="join-game-button">Join Game</button></li>
         </ul>
     </body>
 </html>

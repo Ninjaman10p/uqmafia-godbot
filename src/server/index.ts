@@ -4,6 +4,7 @@ If you're seeing this, cograts, you've successfully hacked this
 */
 
 // vanilla js because I'm evil
+// we use http because it will be sitting *behind* a https nginx relay
 import * as http from "http";
 import * as fs from "fs/promises";
 
@@ -38,8 +39,27 @@ const error404 = (res: http.ServerResponse) => {
     res.end("error 404");
 };
 
+const POSTApi = async (
+    req: http.IncomingMessage,
+    res: http.ServerResponse,
+    handler: (message: object) => object,
+) => {
+    let rawBody = "";
+    for await (const chunk of req) {
+        rawBody += chunk;
+    }
+    let jsonBody = JSON.parse(rawBody);
+    let jsonResponse = handler(jsonBody);
+    res.writeHead(200);
+    res.end(JSON.stringify(jsonResponse));
+};
+
 class Server {
     Server() {}
+
+    echo = (body: object) => {
+        return body;
+    };
 
     requestListener = async (
         req: http.IncomingMessage,
@@ -54,9 +74,9 @@ class Server {
             case "/admin":
             case "/player":
                 return sendFile(req, res, `static${url}.html`);
+            case "/api/echo":
+                return POSTApi(req, res, this.echo);
             default:
-                // TODO apis
-
                 // deliver static files
                 const staticFilepath = url.match(/(?<=^\/static\/).*/);
                 if (staticFilepath != null)
